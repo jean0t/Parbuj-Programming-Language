@@ -27,7 +27,3 @@ go run main.go
 - [ ] Parser development
 - [ ] Enhancing REPL functionality
 - [ ] Extending the functions of the language
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
