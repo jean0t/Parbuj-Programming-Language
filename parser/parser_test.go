@@ -2,8 +2,8 @@ package parser
 
 import (
 	"testing"
-	"parbuj/ast"
-	"parbuj/lexer"
+	"tarbuj/ast"
+	"tarbuj/lexer"
 )
 
 

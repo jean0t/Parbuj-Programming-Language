@@ -1,7 +1,7 @@
 package ast
 
 import (
-	"taburj/token"
+	"tarbuj/token"
 )
 
 type Node interface {
@@ -43,7 +43,7 @@ func (ls *LetStatement) TokenLiteral() string {
 
 type Identifier struct {
 	Token token.Token // token.IDENT
-	Value
+	Value string
 }
 
 func (i *Identifier) expressionNode() {}
