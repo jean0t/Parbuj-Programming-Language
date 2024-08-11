@@ -4,6 +4,7 @@ import (
 	"tarbuj/ast"
 	"tarbuj/lexer"
 	"tarbuj/token"
+	"fmt"
 )
 
 type Parser struct {
@@ -48,6 +49,9 @@ func (p *Parser) parseStatement() ast.Statement {
 		case token.LET:
 			return p.parseLetStatement()
 
+		case token.RETURN:
+			return p.parseReturnStatement()
+
 		default:
 			return nil
 	}
@@ -65,6 +69,17 @@ func (p *Parser) parseLetStatement() *ast.LetStatement {
 	if !p.expectPeek(token.ASSIGN) {
 		return nil
 	}
+
+	for !p.curTokenIs(token.SEMICOLON) {
+		p.nextToken()
+	}
+
+	return stmt
+}
+
+func (p *Parser) parseReturnStatement() *ast.ReturnStatement {
+	var stmt = &ast.ReturnStatement{Token: p.curToken}
+	p.nextToken()
 
 	for !p.curTokenIs(token.SEMICOLON) {
 		p.nextToken()
